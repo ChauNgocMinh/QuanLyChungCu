@@ -1,0 +1,26 @@
+# Ignore các thư mục và tệp tin tạo ra bởi Visual Studio
+*.suo
+*.user
+*.suo
+*.cache
+*.log
+bin/
+obj/
+.vscode/
+.vs/
+.sln.iml
+*.iml
+
+# Ignore các tệp log
+*.log
+
+# Ignore thư mục cài đặt Node.js
+node_modules/
+
+# Ignore thư mục build của Maven
+target/
+
+# Ignore thư mục build của Gradle
+build/
+out/
+.gradle/
