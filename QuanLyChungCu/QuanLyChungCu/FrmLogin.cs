@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyChungCu
 {
@@ -15,6 +16,23 @@ namespace QuanLyChungCu
         public FrmLogin()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.MaximumSize = this.Size; 
+            this.MinimumSize = this.Size; 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(txtTaiKhoan.Text == "q" && txtMatKhau.Text == "w")
+            {
+                FrmMain frmMain = new FrmMain();
+                frmMain.Show();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
