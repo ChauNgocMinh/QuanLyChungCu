@@ -28,100 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCuDan = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCongViec = new System.Windows.Forms.Button();
+            this.btnThongBao = new System.Windows.Forms.Button();
+            this.btnNhanVien = new System.Windows.Forms.Button();
+            this.btnCanHo = new System.Windows.Forms.Button();
+            this.pnlControl = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCuDan
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 45);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCuDan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.btnCuDan.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCuDan.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.btnCuDan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuDan.Location = new System.Drawing.Point(0, 0);
+            this.btnCuDan.Name = "btnCuDan";
+            this.btnCuDan.Size = new System.Drawing.Size(65, 45);
+            this.btnCuDan.TabIndex = 0;
+            this.btnCuDan.Text = "btnCuDan";
+            this.btnCuDan.UseVisualStyleBackColor = false;
+            this.btnCuDan.Click += new System.EventHandler(this.btnCuDan_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnCongViec);
+            this.panel1.Controls.Add(this.btnThongBao);
+            this.panel1.Controls.Add(this.btnNhanVien);
+            this.panel1.Controls.Add(this.btnCanHo);
+            this.panel1.Controls.Add(this.btnCuDan);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1158, 45);
             this.panel1.TabIndex = 5;
             // 
-            // button2
+            // btnCongViec
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(65, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 45);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCongViec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.btnCongViec.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCongViec.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.btnCongViec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCongViec.Location = new System.Drawing.Point(260, 0);
+            this.btnCongViec.Name = "btnCongViec";
+            this.btnCongViec.Size = new System.Drawing.Size(65, 45);
+            this.btnCongViec.TabIndex = 4;
+            this.btnCongViec.Text = "button5";
+            this.btnCongViec.UseVisualStyleBackColor = false;
+            this.btnCongViec.Click += new System.EventHandler(this.btnCongViec_Click);
             // 
-            // button3
+            // btnThongBao
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(130, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 45);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnThongBao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.btnThongBao.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnThongBao.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.btnThongBao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThongBao.Location = new System.Drawing.Point(195, 0);
+            this.btnThongBao.Name = "btnThongBao";
+            this.btnThongBao.Size = new System.Drawing.Size(65, 45);
+            this.btnThongBao.TabIndex = 3;
+            this.btnThongBao.Text = "button4";
+            this.btnThongBao.UseVisualStyleBackColor = false;
+            this.btnThongBao.Click += new System.EventHandler(this.btnThongBao_Click);
             // 
-            // button4
+            // btnNhanVien
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(195, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 45);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNhanVien.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhanVien.Location = new System.Drawing.Point(130, 0);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Size = new System.Drawing.Size(65, 45);
+            this.btnNhanVien.TabIndex = 2;
+            this.btnNhanVien.Text = "btn";
+            this.btnNhanVien.UseVisualStyleBackColor = false;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
-            // button5
+            // btnCanHo
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.button5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(260, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(65, 45);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnCanHo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.btnCanHo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCanHo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.btnCanHo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCanHo.Location = new System.Drawing.Point(65, 0);
+            this.btnCanHo.Name = "btnCanHo";
+            this.btnCanHo.Size = new System.Drawing.Size(65, 45);
+            this.btnCanHo.TabIndex = 1;
+            this.btnCanHo.Text = "btnCanHo";
+            this.btnCanHo.UseVisualStyleBackColor = false;
+            this.btnCanHo.Click += new System.EventHandler(this.btnCanHo_Click);
             // 
-            // panel2
+            // pnlControl
             // 
-            this.panel2.Location = new System.Drawing.Point(3, 56);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1158, 550);
-            this.panel2.TabIndex = 6;
+            this.pnlControl.Location = new System.Drawing.Point(3, 56);
+            this.pnlControl.Name = "pnlControl";
+            this.pnlControl.Size = new System.Drawing.Size(1158, 550);
+            this.pnlControl.TabIndex = 6;
             // 
             // FrmMain
             // 
@@ -129,7 +134,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1164, 608);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlControl);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";
             this.Text = "Quản lý chung cư";
@@ -140,12 +145,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCuDan;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnCongViec;
+        private System.Windows.Forms.Button btnThongBao;
+        private System.Windows.Forms.Button btnNhanVien;
+        private System.Windows.Forms.Button btnCanHo;
+        private System.Windows.Forms.Panel pnlControl;
     }
 }
