@@ -137,5 +137,8 @@
     <Folder Include="Image\" />
     <Folder Include="Model\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="QLChungCu.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
