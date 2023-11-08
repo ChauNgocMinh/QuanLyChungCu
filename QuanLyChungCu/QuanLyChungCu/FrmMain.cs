@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyChungCu
-{
+{   
     public partial class FrmMain : Form
     {
         public FrmMain()
