@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,6 +45,27 @@ namespace QuanLyChungCu.QL_CongViec
         {
             FrmThemCongViec newFrm = new FrmThemCongViec();
             newFrm.ShowDialog();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string macv = txtTenCV.Text.ToString();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+            string query = "SELECT * from CongViec WHERE TenCV like N'"+ macv +"';";
+            using (SqlConnection sqlConnection = ConnectDb.GetConnection())
+            {
+                sqlConnection.Open();
+                adapter = new SqlDataAdapter(query, sqlConnection);
+                adapter.Fill(table);
+                sqlConnection.Close();
+            }
+            dtgvCongViec.Columns["MaCV"].DataPropertyName = "MaCV";
+            dtgvCongViec.Columns["TenCV"].DataPropertyName = "TenCV";
+            dtgvCongViec.Columns["NgayBD"].DataPropertyName = "NgayBatDau";
+            dtgvCongViec.Columns["NgayKT"].DataPropertyName = "NgayKetThuc";
+            dtgvCongViec.Columns["NoiDung"].DataPropertyName = "NoiDung";
+            dtgvCongViec.DataSource = table;
         }
     }
 }
