@@ -33,31 +33,51 @@ namespace QuanLyChungCu.QL_CongViec
         }
         private void btnLuu_Click(object sender, EventArgs e)   
         {
-            string tenCV = txtTenCv.Text;
-            string Noidung = txtNoiDung.Text;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
-            string query = "INSERT INTO CongViec (MaCV, TenCV, NoiDung, NgayBatDau, NgayKetThuc)" +
-                           "VALUES (N'" + randomString + "', N'" + tenCV + "', N'" + Noidung + "', N'" + dtNgayBd.Value + "', N'" + dtNgayKT.Value + "');";
-            using (SqlConnection sqlConnection = ConnectDb.GetConnection())
+            if (dtNgayBd.Value < dtNgayKT.Value)
             {
-                sqlConnection.Open();
-                adapter = new SqlDataAdapter(query, sqlConnection);
-                adapter.Fill(table);
-                sqlConnection.Close();
+                string tenCV = txtTenCv.Text;
+                string Noidung = txtNoiDung.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+                string query = "INSERT INTO CongViec (MaCV, TenCV, NoiDung, NgayBatDau, NgayKetThuc)" +
+                               "VALUES (N'" + randomString + "', N'" + tenCV + "', N'" + Noidung + "', N'" + dtNgayBd.Value + "', N'" + dtNgayKT.Value + "');";
+                using (SqlConnection sqlConnection = ConnectDb.GetConnection())
+                {
+                    sqlConnection.Open();
+                    adapter = new SqlDataAdapter(query, sqlConnection);
+                    adapter.Fill(table);
+                    sqlConnection.Close();
+                }
+                randomString = "";
+                Random();
+                FrmCongViec frmCongViec = new FrmCongViec();
+                frmCongViec.FillTable();
+                txtTenCv.Text = "";
+                txtNoiDung.Text = "";
+                dtNgayBd.Value = DateTime.Today;
+                dtNgayKT.Value = DateTime.Today;
+                MessageBox.Show("Lưu thành công");
             }
-            Random();
-            txtTenCv.Text = "";
-            txtNoiDung.Text = "";
-            dtNgayBd.Value = DateTime.Today;
-            dtNgayKT.Value = DateTime.Today;
-            MessageBox.Show("Lưu thành công");
+            else
+            {
+                MessageBox.Show("Ngày bắt đầu phải trước ngày kết thúc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            
-            this.Close();
+            if (txtTenCv.Text != "" || txtNoiDung.Text != "")
+            {
+                DialogResult result = MessageBox.Show("Bạn đang có những thay đổi chưa hoàn thành", "Bạn thực sự muốn kết thúc nó?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -74,5 +74,10 @@ namespace QuanLyChungCu
             newFrm.BringToFront();
             newFrm.Show();
         }
+
+        private void pnlControl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
