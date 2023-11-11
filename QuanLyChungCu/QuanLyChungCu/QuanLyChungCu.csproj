@@ -82,6 +82,12 @@
     <Compile Include="QL_CongViec\FrmThemCongViec.Designer.cs">
       <DependentUpon>FrmThemCongViec.cs</DependentUpon>
     </Compile>
+    <Compile Include="QL_CongViec\frmSuathongTin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QL_CongViec\frmSuathongTin.Designer.cs">
+      <DependentUpon>frmSuathongTin.cs</DependentUpon>
+    </Compile>
     <Compile Include="QL_CuDan\FrmCuDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QL_CongViec\FrmThemCongViec.resx">
       <DependentUpon>FrmThemCongViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QL_CongViec\frmSuathongTin.resx">
+      <DependentUpon>frmSuathongTin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QL_CuDan\FrmCuDan.resx">
       <DependentUpon>FrmCuDan.cs</DependentUpon>

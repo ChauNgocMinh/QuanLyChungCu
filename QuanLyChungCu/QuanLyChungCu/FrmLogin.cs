@@ -23,10 +23,10 @@ namespace QuanLyChungCu
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(txtTaiKhoan.Text == "q" && txtMatKhau.Text == "w")
+            if(txtTaiKhoan.Text == "q" && txtMatKhau.Text == "q")
             {
                 FrmMain frmMain = new FrmMain();
-                frmMain.Show();
+                frmMain.ShowDialog();
             }
         }
 
