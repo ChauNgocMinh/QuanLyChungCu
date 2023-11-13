@@ -50,12 +50,12 @@ namespace QuanLyChungCu.QL_CongViec
                 }
                 randomString = "";
                 Random();
-                FrmCongViec frmCongViec = new FrmCongViec();
-                frmCongViec.FillTable();
+                FrmCongViec.FillTable();
                 txtTenCv.Text = "";
                 txtNoiDung.Text = "";
                 dtNgayBd.Value = DateTime.Today;
                 dtNgayKT.Value = DateTime.Today;
+
                 MessageBox.Show("Lưu thành công");
             }
             else

@@ -14,7 +14,7 @@ namespace QuanLyChungCu
 
         static ConnectDb()
         {
-            connectionString = "Data Source=SKUSER-7PTIEEUR;Initial Catalog=QLChungCu;Integrated Security=True";
+            connectionString = "Data Source=DESKTOP-Q8H8790;Initial Catalog=QLChungCu;Integrated Security=True";
         }
         public static SqlConnection GetConnection()
         {
