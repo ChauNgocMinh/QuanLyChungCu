@@ -111,6 +111,8 @@
             // 
             // dtgvCongViec
             // 
+            this.dtgvCongViec.AllowUserToResizeColumns = false;
+            this.dtgvCongViec.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dtgvCongViec.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvCongViec.BackgroundColor = System.Drawing.Color.White;

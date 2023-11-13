@@ -76,6 +76,12 @@
     <Compile Include="QL_CongViec\FrmCongViec.Designer.cs">
       <DependentUpon>FrmCongViec.cs</DependentUpon>
     </Compile>
+    <Compile Include="QL_CongViec\FrmPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QL_CongViec\FrmPhanCong.Designer.cs">
+      <DependentUpon>FrmPhanCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="QL_CongViec\FrmThemCongViec.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QL_CongViec\FrmCongViec.resx">
       <DependentUpon>FrmCongViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QL_CongViec\FrmPhanCong.resx">
+      <DependentUpon>FrmPhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QL_CongViec\FrmThemCongViec.resx">
       <DependentUpon>FrmThemCongViec.cs</DependentUpon>

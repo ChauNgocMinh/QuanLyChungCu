@@ -33,7 +33,7 @@ namespace QuanLyChungCu.QL_CongViec
         }
         private void btnLuu_Click(object sender, EventArgs e)   
         {
-            if (dtNgayBd.Value < dtNgayKT.Value)
+            if (dtNgayBd.Value <= dtNgayKT.Value)
             {
                 string tenCV = txtTenCv.Text;
                 string Noidung = txtNoiDung.Text;
@@ -50,7 +50,8 @@ namespace QuanLyChungCu.QL_CongViec
                 }
                 randomString = "";
                 Random();
-                FrmCongViec.FillTable();
+                FrmCongViec frmCongViec = new FrmCongViec();
+                frmCongViec.FillTable();
                 txtTenCv.Text = "";
                 txtNoiDung.Text = "";
                 dtNgayBd.Value = DateTime.Today;
@@ -60,7 +61,7 @@ namespace QuanLyChungCu.QL_CongViec
             }
             else
             {
-                MessageBox.Show("Ngày bắt đầu phải trước ngày kết thúc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ngày bắt đầu phải trước hoặc bằng ngày kết thúc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

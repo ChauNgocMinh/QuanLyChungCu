@@ -14,7 +14,8 @@ namespace QuanLyChungCu.QL_CongViec
 {
     public partial class FrmCongViec : Form
     {
-        
+        public event EventHandler FormClosedEvent;
+
         public FrmCongViec()
         {
             InitializeComponent();
@@ -38,9 +39,13 @@ namespace QuanLyChungCu.QL_CongViec
                 dtgvCongViec.Columns["NgayBD"].DataPropertyName = "NgayBatDau";
                 dtgvCongViec.Columns["NgayKT"].DataPropertyName = "NgayKetThuc";
                 dtgvCongViec.Columns["NoiDung"].DataPropertyName = "NoiDung";
+                dtgvCongViec.DataSource = null;
+                dtgvCongViec.DefaultCellStyle.ForeColor = Color.Black;
+                dtgvCongViec.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dtgvCongViec.MultiSelect = false;
                 dtgvCongViec.DataSource = table;
             }
-            catch(Exception ex) {
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -53,6 +58,11 @@ namespace QuanLyChungCu.QL_CongViec
         {
             FrmThemCongViec newFrm = new FrmThemCongViec();
             newFrm.ShowDialog();
+        }
+        private void FrmThemCongViec_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Kích hoạt sự kiện FormClosedEvent khi form đã đóng
+            FormClosedEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -89,19 +99,17 @@ namespace QuanLyChungCu.QL_CongViec
         {
             if (dtgvCongViec.SelectedRows.Count > 0)
             {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hàng được chọn?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     DataGridViewRow selectedRow = dtgvCongViec.SelectedRows[0];
                     string idToDelete = selectedRow.Cells["MaCV"].Value.ToString();
                     SqlDataAdapter adapter = new SqlDataAdapter();
-                    DataTable table = new DataTable();
                     string query = "DELETE FROM CongViec WHERE MaCV like N'" + idToDelete + "';";
                     using (SqlConnection sqlConnection = ConnectDb.GetConnection())
                     {
                         sqlConnection.Open();
                         adapter = new SqlDataAdapter(query, sqlConnection);
-                        adapter.Fill(table);
                         sqlConnection.Close();
                     }
                     MessageBox.Show("Xóa thành công!!");
@@ -146,21 +154,46 @@ namespace QuanLyChungCu.QL_CongViec
                             tabControl1.TabPages.Add(newTabPage);
                             newTabPage.BackColor = Color.White;
                             // Thêm controls của tam vào TabPage mới
-                            DataGridView dtgvCongViec = new DataGridView();
-                            dtgvCongViec.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-                            dtgvCongViec.Columns.AddRange(
+                            DataGridView dtgvNhanVien = new DataGridView();
+                            dtgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                            dtgvNhanVien.Columns.AddRange(
                                 new DataGridViewTextBoxColumn() { HeaderText = "Mã nhân viên", Name = "MaNV", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill },
                                 new DataGridViewTextBoxColumn() { HeaderText = "Họ tên", Name = "HoTen", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill },
-                                new DataGridViewTextBoxColumn() { HeaderText = "Ngày", Name = "Ngay", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill },
+                                new DataGridViewTextBoxColumn() { HeaderText = "Ngày sinh", Name = "NgaySinh", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill },
                                 new DataGridViewTextBoxColumn() { HeaderText = "Quê quán", Name = "QueQuan", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill },
                                 new DataGridViewTextBoxColumn() { HeaderText = "Email", Name = "Email", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill },
                                 new DataGridViewTextBoxColumn() { HeaderText = "Số điện thoại", Name = "SDT", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill },
                                 new DataGridViewTextBoxColumn() { HeaderText = "Chức vụ", Name = "ChucVu", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill }
                             );
-                            dtgvCongViec.Location = new Point(6, 165);
-                            dtgvCongViec.Name = "dtgvCongViec";
-                            dtgvCongViec.Size = new Size(1127, 342);
+                            dtgvNhanVien.Location = new Point(6, 165);
+                            dtgvNhanVien.Name = "dtgvNhanVien";
+                            dtgvNhanVien.Size = new Size(1127, 342);
+                            dtgvNhanVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                            dtgvNhanVien.MultiSelect = false;
+                            dtgvNhanVien.DefaultCellStyle.ForeColor = Color.Black;
+                            dtgvNhanVien.AllowUserToResizeColumns = false;
+                            dtgvNhanVien.AllowUserToResizeRows = false;
 
+                            //  Đổ data vào datagridview
+                            SqlDataAdapter adapter = new SqlDataAdapter();
+                            DataTable table = new DataTable();
+                            string query = "SELECT NhanVien.* FROM NhanVien JOIN PhanCong ON NhanVien.MaNV = PhanCong.MaNV WHERE PhanCong.MaCV = '" + maCongViec + "'; ";
+                            using (SqlConnection sqlConnection = ConnectDb.GetConnection())
+                            {
+                                sqlConnection.Open();
+                                adapter = new SqlDataAdapter(query, sqlConnection);
+                                adapter.Fill(table);
+                                sqlConnection.Close();
+                            }
+                            dtgvNhanVien.Columns["MaNV"].DataPropertyName = "MaNV";
+                            dtgvNhanVien.Columns["HoTen"].DataPropertyName = "HoTen";
+                            dtgvNhanVien.Columns["NgaySinh"].DataPropertyName = "NgaySinh";
+                            dtgvNhanVien.Columns["QueQuan"].DataPropertyName = "QueQuan";
+                            dtgvNhanVien.Columns["Email"].DataPropertyName = "Email";
+                            dtgvNhanVien.Columns["SDT"].DataPropertyName = "SoDienThoai";
+                            dtgvNhanVien.Columns["ChucVu"].DataPropertyName = "ChucVu";
+                            dtgvNhanVien.DataSource = null;
+                            dtgvNhanVien.DataSource = table;
 
                             RichTextBox txtNoiDung = new RichTextBox();
                             txtNoiDung.Location = new Point(816, 59);
@@ -254,17 +287,19 @@ namespace QuanLyChungCu.QL_CongViec
 
                             Button btnXoa = new Button();
                             btnXoa.Location = new Point(1000, 140);
-                            btnXoa.Name = "btnXoa";
+                            btnXoa.Name = "btnXoa1";
                             btnXoa.Text = "Xóa";
                             btnXoa.Size = new Size(90, 23);
                             btnXoa.ForeColor = Color.Black;
-                            
+                            btnXoa.Click += btnXoa1_Click;
+
                             Button btnThem = new Button();
                             btnThem.Location = new Point(900, 140);
-                            btnThem.Name = "btnThem";
+                            btnThem.Name = "btnThem1";
                             btnThem.Text = "Thêm";
                             btnThem.Size = new Size(90, 23);
                             btnThem.ForeColor = Color.Black;
+                            btnThem.Click += btnThem1_Click;
 
                             Label label1 = new Label();
                             label1.AutoSize = true;
@@ -276,7 +311,7 @@ namespace QuanLyChungCu.QL_CongViec
                             label1.Size = new Size(212, 24);
 
                             // Thêm các control vào TabPage mới
-                            newTabPage.Controls.Add(dtgvCongViec);
+                            newTabPage.Controls.Add(dtgvNhanVien);
                             newTabPage.Controls.Add(txtNoiDung);
                             newTabPage.Controls.Add(txtTenCV);
                             newTabPage.Controls.Add(dtNgayKT);
@@ -333,6 +368,44 @@ namespace QuanLyChungCu.QL_CongViec
             newFrm.dtNgayBd.Value = DateTime.Parse(table.Rows[0]["NgayBatDau"].ToString());
             newFrm.dtNgayKT.Value = DateTime.Parse(table.Rows[0]["NgayKetThuc"].ToString());
             newFrm.ShowDialog();
+        }
+        private void btnXoa1_Click(object sender, EventArgs e)
+        {
+            DataGridView dtgvNhanVien = new DataGridView();
+            var IdCongViec = tabControl1.SelectedTab;
+            if (dtgvNhanVien.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hàng được chọn?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    DataGridViewRow selectedRow = dtgvNhanVien.SelectedRows[0];
+                    string idToDelete = selectedRow.Cells["MaNV"].Value.ToString();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    string query = "DELETE FROM PhanCong WHERE MaNV = '"+ idToDelete +"' AND MaCV = '"+ IdCongViec + "';";
+                    using (SqlConnection sqlConnection = ConnectDb.GetConnection())
+                    {
+                        sqlConnection.Open();
+                        adapter = new SqlDataAdapter(query, sqlConnection);
+                        sqlConnection.Close();
+                    }
+                    MessageBox.Show("Xóa thành công!!");
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để xóa.");
+            }
+        }
+        private void btnThem1_Click(object sender, EventArgs e)
+        {
+            var IdCongViec = tabControl1.SelectedTab;
+            FrmPhanCong frmPhanCong = new FrmPhanCong();
+            frmPhanCong.Text = "Phân công nhân viên mới cho công việc " + IdCongViec.Text;
+            frmPhanCong.ShowDialog();
         }
     }
 }

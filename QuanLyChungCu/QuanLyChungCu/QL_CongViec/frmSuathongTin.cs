@@ -16,34 +16,24 @@ namespace QuanLyChungCu.QL_CongViec
         public frmSuathongTin()
         {
             InitializeComponent();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
-            string query = "SELECT NhanVien.* FROM NhanVien JOIN PhanCong ON NhanVien.MaNV = PhanCong.MaNV WHERE PhanCong.MaCV = '" + maCongViec.Text + "'; ";
-            using (SqlConnection sqlConnection = ConnectDb.GetConnection())
-            {
-                sqlConnection.Open();
-                adapter = new SqlDataAdapter(query, sqlConnection);
-                adapter.Fill(table);
-                sqlConnection.Close();
-            }
         }
 
         public void QueryDB()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
-            string query = "SELECT NhanVien.* FROM NhanVien JOIN PhanCong ON NhanVien.MaNV = PhanCong.MaNV WHERE PhanCong.MaCV = '"+ maCongViec.Text +"'; ";
-            using (SqlConnection sqlConnection = ConnectDb.GetConnection())
-            {
-                sqlConnection.Open();
-                adapter = new SqlDataAdapter(query, sqlConnection);
-                adapter.Fill(table);
-                sqlConnection.Close();
-            }
-            txtTenCv.Text = table.Rows[0]["TenCV"].ToString();
-            txtNoiDung.Text = table.Rows[0]["NoiDung"].ToString();
-            dtNgayBd.Value = DateTime.Parse(table.Rows[0]["NgayBatDau"].ToString());
-            dtNgayKT.Value = DateTime.Parse(table.Rows[0]["NgayKetThuc"].ToString());
+            //SqlDataAdapter adapter = new SqlDataAdapter();
+            //DataTable table = new DataTable();
+            //string query = "";
+            //using (SqlConnection sqlConnection = ConnectDb.GetConnection())
+            //{
+            //    sqlConnection.Open();
+            //    adapter = new SqlDataAdapter(query, sqlConnection);
+            //    adapter.Fill(table);
+            //    sqlConnection.Close();
+            //}
+            //txtTenCv.Text = table.Rows[0]["TenCV"].ToString();
+            //txtNoiDung.Text = table.Rows[0]["NoiDung"].ToString();
+            //dtNgayBd.Value = DateTime.Parse(table.Rows[0]["NgayBatDau"].ToString());
+            //dtNgayKT.Value = DateTime.Parse(table.Rows[0]["NgayKetThuc"].ToString());
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
