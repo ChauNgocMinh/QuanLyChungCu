@@ -37,12 +37,12 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.dtgvCongViec = new System.Windows.Forms.DataGridView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MaCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayBD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Tab_DanhSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCongViec)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -55,11 +55,11 @@
             this.Tab_DanhSach.Controls.Add(this.btnThem);
             this.Tab_DanhSach.Controls.Add(this.btnXoa);
             this.Tab_DanhSach.Controls.Add(this.dtgvCongViec);
-            this.Tab_DanhSach.Location = new System.Drawing.Point(4, 22);
-            this.Tab_DanhSach.Margin = new System.Windows.Forms.Padding(2);
+            this.Tab_DanhSach.Location = new System.Drawing.Point(4, 25);
+            this.Tab_DanhSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Tab_DanhSach.Name = "Tab_DanhSach";
-            this.Tab_DanhSach.Padding = new System.Windows.Forms.Padding(2);
-            this.Tab_DanhSach.Size = new System.Drawing.Size(1130, 502);
+            this.Tab_DanhSach.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Tab_DanhSach.Size = new System.Drawing.Size(1509, 621);
             this.Tab_DanhSach.TabIndex = 0;
             this.Tab_DanhSach.Text = "Danh sách công việc";
             this.Tab_DanhSach.UseVisualStyleBackColor = true;
@@ -67,19 +67,19 @@
             // 
             // txtTenCV
             // 
-            this.txtTenCV.Location = new System.Drawing.Point(962, 13);
-            this.txtTenCV.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenCV.Location = new System.Drawing.Point(1283, 16);
+            this.txtTenCV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenCV.Name = "txtTenCV";
-            this.txtTenCV.Size = new System.Drawing.Size(167, 20);
+            this.txtTenCV.Size = new System.Drawing.Size(221, 22);
             this.txtTenCV.TabIndex = 4;
             // 
             // btnTim
             // 
             this.btnTim.ForeColor = System.Drawing.Color.Black;
-            this.btnTim.Location = new System.Drawing.Point(836, 9);
-            this.btnTim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTim.Location = new System.Drawing.Point(1115, 11);
+            this.btnTim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(93, 26);
+            this.btnTim.Size = new System.Drawing.Size(124, 32);
             this.btnTim.TabIndex = 3;
             this.btnTim.Text = "Tìm kiếm";
             this.btnTim.UseVisualStyleBackColor = true;
@@ -88,10 +88,10 @@
             // btnThem
             // 
             this.btnThem.ForeColor = System.Drawing.Color.Black;
-            this.btnThem.Location = new System.Drawing.Point(725, 9);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThem.Location = new System.Drawing.Point(967, 11);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(93, 26);
+            this.btnThem.Size = new System.Drawing.Size(124, 32);
             this.btnThem.TabIndex = 2;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -100,10 +100,10 @@
             // btnXoa
             // 
             this.btnXoa.ForeColor = System.Drawing.Color.Black;
-            this.btnXoa.Location = new System.Drawing.Point(611, 9);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoa.Location = new System.Drawing.Point(815, 11);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(93, 26);
+            this.btnXoa.Size = new System.Drawing.Size(124, 32);
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -141,16 +141,26 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvCongViec.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvCongViec.GridColor = System.Drawing.Color.Black;
-            this.dtgvCongViec.Location = new System.Drawing.Point(4, 44);
-            this.dtgvCongViec.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvCongViec.Location = new System.Drawing.Point(5, 54);
+            this.dtgvCongViec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvCongViec.Name = "dtgvCongViec";
             this.dtgvCongViec.RowHeadersVisible = false;
             this.dtgvCongViec.RowHeadersWidth = 51;
             this.dtgvCongViec.RowTemplate.Height = 24;
             this.dtgvCongViec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvCongViec.Size = new System.Drawing.Size(1123, 456);
+            this.dtgvCongViec.Size = new System.Drawing.Size(1497, 561);
             this.dtgvCongViec.TabIndex = 0;
             this.dtgvCongViec.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCongViec_CellDoubleClick);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.Tab_DanhSach);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1517, 650);
+            this.tabControl1.TabIndex = 0;
             // 
             // MaCV
             // 
@@ -182,29 +192,20 @@
             // 
             // NgayKT
             // 
-            this.NgayKT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NgayKT.HeaderText = "Ngày kết thúc";
             this.NgayKT.MinimumWidth = 6;
             this.NgayKT.Name = "NgayKT";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.Tab_DanhSach);
-            this.tabControl1.Location = new System.Drawing.Point(9, 10);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1138, 528);
-            this.tabControl1.TabIndex = 0;
+            this.NgayKT.Width = 125;
             // 
             // FrmCongViec
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 548);
+            this.ClientSize = new System.Drawing.Size(1541, 674);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCongViec";
             this.Tab_DanhSach.ResumeLayout(false);
             this.Tab_DanhSach.PerformLayout();
@@ -222,11 +223,11 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.DataGridView dtgvCongViec;
+        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaCV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenCV;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayBD;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKT;
-        private System.Windows.Forms.TabControl tabControl1;
     }
 }

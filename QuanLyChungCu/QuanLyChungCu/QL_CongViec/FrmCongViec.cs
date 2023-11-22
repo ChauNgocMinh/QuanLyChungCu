@@ -38,6 +38,7 @@ namespace QuanLyChungCu.QL_CongViec
                 dtgvCongViec.Columns["TenCV"].DataPropertyName = "TenCV";
                 dtgvCongViec.Columns["NgayBD"].DataPropertyName = "NgayBatDau";
                 dtgvCongViec.Columns["NgayKT"].DataPropertyName = "NgayKetThuc";
+
                 dtgvCongViec.Columns["NoiDung"].DataPropertyName = "NoiDung";
                 dtgvCongViec.DataSource = null;
                 dtgvCongViec.DefaultCellStyle.ForeColor = Color.Black;
@@ -99,17 +100,20 @@ namespace QuanLyChungCu.QL_CongViec
         {
             if (dtgvCongViec.SelectedRows.Count > 0)
             {
+                
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hàng được chọn?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     DataGridViewRow selectedRow = dtgvCongViec.SelectedRows[0];
                     string idToDelete = selectedRow.Cells["MaCV"].Value.ToString();
                     SqlDataAdapter adapter = new SqlDataAdapter();
+                    DataTable table = new DataTable();
                     string query = "DELETE FROM CongViec WHERE MaCV like N'" + idToDelete + "';";
                     using (SqlConnection sqlConnection = ConnectDb.GetConnection())
                     {
                         sqlConnection.Open();
                         adapter = new SqlDataAdapter(query, sqlConnection);
+                        adapter.Fill(table);
                         sqlConnection.Close();
                     }
                     MessageBox.Show("Xóa thành công!!");
